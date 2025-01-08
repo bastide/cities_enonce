@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.1</version>
+		<version>3.1.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -20,16 +20,10 @@
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<start-class>monprojet.WebApp</start-class>
-		<java.version>17</java.version>
+		<java.version>21</java.version>
     </properties>
 
 	<dependencies>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-
 		<dependency>
 			<!-- JPA -->
 			<groupId>org.springframework.boot</groupId>
@@ -49,6 +43,7 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<!-- Contraintes de validation -->
 			<groupId>org.springframework.boot</groupId>
@@ -60,6 +55,7 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- Pour les tests Spring -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -71,7 +67,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
 		<!-- Lombok pour générer automatiquement les getter / setter...  -->
 		<!-- cf. https://examples.javacodegeeks.com/spring-boot-with-lombok/ -->
 		<dependency>
@@ -79,10 +74,23 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.30</version>
 		</dependency>
+		<!-- Actuator pour les monitoring de l'application  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.13.0</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

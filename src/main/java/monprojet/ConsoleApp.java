@@ -37,13 +37,15 @@ public class ConsoleApp implements CommandLineRunner {
         Country espagne = new Country("ES", "España");
         log.info("Avant d'enregistrer, pas de cle : {}", espagne);
         countryDAO.save(espagne);
-        log.info("Après l'enregistrement, la cle a été generee : {}", espagne);
+        log.info("Après l'enregistrement, la cle a été générée : {}", espagne);
 
         tapezEnterPourContinuer();
 
         log.info("Recherche par cle");
         Optional<Country> oc = countryDAO.findById(2);
-        oc.ifPresent(c -> log.info("On a trouvé: {}", c));
+        oc.ifPresent(
+                c -> log.info("On a trouvé: {}", c)
+        );
 
         tapezEnterPourContinuer();
 
