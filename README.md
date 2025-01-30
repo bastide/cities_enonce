@@ -28,7 +28,7 @@ Avant de lancer ce projet, assurez-vous d'avoir :
 1. Clonez le dépôt :
 
    ```bash
-   git clone https://votre-repo-git.com/username/monprojet.git
+   git clone https://github.com/bastide/cities_enonce.git
    cd monprojet
    ```
 
